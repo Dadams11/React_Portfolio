@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentSection, setCurrentSection] = useState("About Me");
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <header>
+        <h1>My Portfolio</h1>
+        <nav>
+          <ul>
+            {['About Me', 'Portfolio', 'Contact', 'Resume'].map((section) => (
+              <li key={section}>
+                <a
+                  href={`#${section.replace(' ', '').toLowerCase()}`}
+                  className={currentSection === section ? 'active' : ''}
+                  onClick={() => setCurrentSection(section)}
+                >
+                  {section}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </header>
+      
+      <main>
+        {currentSection === 'About Me' && (
+          <section id="aboutme">
+            <h2>About Me</h2>
+            <p>This is the about me section.</p>
+          </section>
+        )}
+        
+        {currentSection === 'Portfolio' && (
+          <section id="portfolio">
+            <h2>Portfolio</h2>
+            <p>This is the portfolio section.</p>
+          </section>
+        )}
+
+        {currentSection === 'Contact' && (
+          <section id="contact">
+            <h2>Contact</h2>
+            <p>This is the contact section.</p>
+          </section>
+        )}
+
+        {currentSection === 'Resume' && (
+          <section id="resume">
+            <h2>Resume</h2>
+            <p>This is the resume section.</p>
+          </section>
+        )}
+      </main>
+
+      <footer>
+        <p>Find me on GitHub, LinkedIn, and Twitter.</p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
