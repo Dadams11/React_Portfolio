@@ -1,64 +1,74 @@
-import { useState } from 'react';
-import './App.css';
+import React from 'react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import Navigation from './components/Navigation';
 
 function App() {
-  const [currentSection, setCurrentSection] = useState("About Me");
-
   return (
-    <div>
-      <header>
-        <h1>My Portfolio</h1>
-        <nav>
-          <ul>
-            {['About Me', 'Portfolio', 'Contact', 'Resume'].map((section) => (
-              <li key={section}>
-                <a
-                  href={`#${section.replace(' ', '').toLowerCase()}`}
-                  className={currentSection === section ? 'active' : ''}
-                  onClick={() => setCurrentSection(section)}
-                >
-                  {section}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
-      
-      <main>
-        {currentSection === 'About Me' && (
-          <section id="aboutme">
-            <h2>About Me</h2>
-            <p>This is the about me section.</p>
-          </section>
-        )}
-        
-        {currentSection === 'Portfolio' && (
-          <section id="portfolio">
-            <h2>Portfolio</h2>
-            <p>This is the portfolio section.</p>
-          </section>
-        )}
+    <Router>
+      <div>
+        <header>
+          <h1>My Portfolio</h1>
+          <Navigation />
+        </header>
 
-        {currentSection === 'Contact' && (
-          <section id="contact">
-            <h2>Contact</h2>
-            <p>This is the contact section.</p>
-          </section>
-        )}
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <AboutMe />
+            </Route>
+            <Route path="/portfolio">
+              <Portfolio />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/resume">
+              <Resume />
+            </Route>
+          </Switch>
+        </main>
 
-        {currentSection === 'Resume' && (
-          <section id="resume">
-            <h2>Resume</h2>
-            <p>This is the resume section.</p>
-          </section>
-        )}
-      </main>
+        <footer>
+          <p>Find me on GitHub, LinkedIn, and Twitter.</p>
+        </footer>
+      </div>
+    </Router>
+  );
+}
 
-      <footer>
-        <p>Find me on GitHub, LinkedIn, and Twitter.</p>
-      </footer>
-    </div>
+function AboutMe() {
+  return (
+    <section id="aboutme">
+      <h2>About Me</h2>
+      <p>This is the about me section.</p>
+    </section>
+  );
+}
+
+function Portfolio() {
+  return (
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <p>This is the portfolio section.</p>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>This is the contact section.</p>
+    </section>
+  );
+}
+
+function Resume() {
+  return (
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>This is the resume section.</p>
+    </section>
   );
 }
 
