@@ -1,17 +1,29 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background-color: #FFD700;  /* gold color */
+  padding: 1rem;
+}
+
+main {
+  background-color: #F0E68C;  /* khaki color */
+  flex-grow: 1;  /* to take the remaining space */
+  padding: 1rem;
+}
+
+footer {
+  background-color: #BDB76B;  /* dark khaki color */
+  padding: 1rem;
 }
 
 nav a {
-  text-decoration: none;
-  margin: 0 15px;
-  color: #333;
-  padding-bottom: 5px;
+  margin: 0.5rem;
 }
 
-.active {
-  border-bottom: 2px solid #333;
+section {
+  margin: 2rem 0;
 }
