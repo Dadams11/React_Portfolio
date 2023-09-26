@@ -30,7 +30,7 @@ function App() {
                 </main>
 
                 <footer className="app-footer">
-                    <p>Find me on GitHub, LinkedIn, and Twitter.</p>
+                    <p>Find me on GitHub and LinkedIn.</p>
                 </footer>
             </div>
         </Router>
@@ -56,13 +56,20 @@ function Portfolio() {
 }
 
 function Contact() {
-    return (
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>This is the contact section.</p>
-        </section>
-    );
+  return (
+      <section id="contact">
+          <h2>Contact</h2>
+          <p>
+              This is the contact section. You can reach me at:
+              <ul>
+                  <li><a href="https://github.com/Dadams11" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                  <li><a href="https://www.linkedin.com/in/yourLinkedInUsername" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              </ul>
+          </p>
+      </section>
+  );
 }
+
 
 function Resume() {
     return (
