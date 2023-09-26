@@ -17,8 +17,8 @@ function App() {
                         <Route exact path="/">
                             <AboutMe />
                         </Route>
-                        <Route path="/portfolio">
-                            <Portfolio />
+                        <Route path="/projects">
+                            <Projects />
                         </Route>
                         <Route path="/contact">
                             <Contact />
@@ -46,11 +46,11 @@ function AboutMe() {
     );
 }
 
-function Portfolio() {
+function Projects() {
     return (
-        <section id="portfolio">
-            <h2>Portfolio</h2>
-            <p>This is the portfolio section.</p>
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>This is the projects section.</p>
         </section>
     );
 }
